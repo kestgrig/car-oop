@@ -27,5 +27,4 @@ console.log(bulka.sustojimas());
 console.log(bulka.likesKuroKiekis());
 
 console.log(bulka.kuroBakoUzpilimas(10));
-console.log(bulka.kuroBakoUzpilimas(70));
 console.log(bulka.kuroBakoUzpilimas(56.98));

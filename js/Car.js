@@ -13,34 +13,34 @@ export class Car {
     variklioUzvedimas() {
         if (this.arIjungtasVariklis === false) {
             this.arIjungtasVariklis = true;
-            return 'Variklis uzvestas, galite vaziuoti.';
+            return `Variklis uzvestas, galite vaziuoti.`;
         } else if (this.arIjungtasVariklis === true) {
-            return 'Variklis uzvestas, uzvesto variklio dar karta uzvesti negalite, bus sugadintas starteris ir prireiks remonto❗❗❗ 🔧';
+            return `Variklis uzvestas, uzvesto variklio dar karta uzvesti negalite, bus sugadintas starteris ir prireiks remonto❗❗❗ 🔧`;
         }
     }
 
 
     variklioIsjungimas() {
         if (this.greitis > 0) {
-            return 'Pirmiausia sustokite ir tik tada isjunkite varikli❗❗❗';
+            return `Pirmiausia sustokite ir tik tada isjunkite varikli❗❗❗`;
         }
 
         if (this.arIjungtasVariklis === true && this.greitis === 0) {
             this.arIjungtasVariklis = false;
-            return 'Variklis isjungtas.';
+            return `Variklis isjungtas.`;
         } else if (this.arIjungtasVariklis === false) {
-            return 'Variklis isjungtas, isjungto variklio dar karta isjungti negalite❗❗❗';
+            return `Variklis isjungtas, isjungto variklio dar karta isjungti negalite❗❗❗`;
         }
     }
 
     pradejimasVaziuoti(km) {
         this.arIjungtasVariklis = true;
         if (this.arIjungtasVariklis !== true) {
-            return 'Variklis neuzvestas, pries pradedami vaziuoti uzveskite varikli.';
+            return `Variklis neuzvestas, pries pradedami vaziuoti uzveskite varikli.`;
         } else if (this.kuroLikutis === 0) {
-            return 'Automobilis negali vaziuoti nes nera kuro bake'
+            return `Automobilis negali vaziuoti nes nera kuro bake`;
         } else if (this.greitis > 0) {
-            return 'Automobilis pradejo vaziuoti'
+            return `Automobilis pradejo vaziuoti`;
         } else {
             this.greitis = 70;
             this.kuroLikutis = (this.kuroLikutis - ((2 * this.vidutinesKuroSanaudos * km) / 100));
@@ -71,11 +71,14 @@ export class Car {
     }
 
     kuroBakoUzpilimas(litrai) {
+        // this.greitis = 0;
+        // this.arIjungtasVariklis === false;
         if (this.greitis !== 0 && this.arIjungtasVariklis === true) {
             return `Pilti kura draudziama i vaziuojanti ir su uzkurtu varikliu automobili. Prasome sustoti ir isjungti varikli.`;
         }
+
         if (this.kuroBakoTalpa === this.likesKuroKiekis) {
-            return `Automobilio kuro bakas pilnas, yra ${this.kuroBakoTalpa} litrai degalu. `;
+            return `Automobilio kuro bakas pilnas, yra ${this.kuroBakoTalpa} litrai kuro. `;
         }
         if (litrai >= (this.kuroBakoTalpa - this.kuroLikutis)) {
             return `I automobilio baka buvo uzpilta ${this.kuroBakoTalpa - this.kuroLikutis}.`;
